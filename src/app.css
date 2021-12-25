@@ -1,0 +1,12 @@
+.alertBox {
+  padding: 0.5rem 2rem;
+  background-color: #e8fffb;
+  border: 0;
+  border-radius: 0.5rem;
+  color: #21e6c1;
+  /* margin: 0.5rem 1rem; */
+}
+.error {
+  background-color: #ffd5e0;
+  color: #ff4777;
+}
