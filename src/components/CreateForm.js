@@ -30,6 +30,7 @@ const CreateForm = ({ createBlog }) => {
         <p>
           <label htmlFor="title">title: </label>
           <input
+            id="title"
             type="text"
             name="title"
             value={title}
@@ -39,6 +40,7 @@ const CreateForm = ({ createBlog }) => {
         <p>
           <label htmlFor="author">author: </label>
           <input
+            id="author"
             type="text"
             name="author"
             value={author}
@@ -48,6 +50,7 @@ const CreateForm = ({ createBlog }) => {
         <p>
           <label htmlFor="url">url: </label>
           <input
+            id="url"
             type="text"
             name="url"
             value={url}
@@ -55,7 +58,9 @@ const CreateForm = ({ createBlog }) => {
           ></input>
         </p>
         <p>
-          <button onClick={(e) => createBlogHandler(e)}>Create</button>
+          <button id="createBtn" onClick={(e) => createBlogHandler(e)}>
+            Create
+          </button>
         </p>
       </form>
     </div>

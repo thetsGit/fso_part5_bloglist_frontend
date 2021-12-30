@@ -5,10 +5,11 @@ const LoginForm = (props) => {
   return (
     <div>
       <h1>Log in here</h1>
-      <form onSubmit={(e) => props.submitHandler(e)}>
+      <form onSubmit={(e) => props.submitHandler(e)} className="loginForm">
         <p>
           <label htmlFor="username">username: </label>
           <input
+            id="username"
             type="text"
             name="username"
             value={props.username}
@@ -18,6 +19,7 @@ const LoginForm = (props) => {
         <p>
           <label htmlFor="password">password: </label>
           <input
+            id="password"
             type="password"
             name="password"
             value={props.password}

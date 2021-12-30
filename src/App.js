@@ -11,7 +11,7 @@ import LoginForm from "./components/LoginForm";
 const AlertBox = ({ message, type }) => {
   const className = type === "error" ? "alertBox error" : "alertBox";
   return (
-    <div className={`${className}`}>
+    <div className={`${className}`} id="alertBox">
       <p>{message}</p>
     </div>
   );
@@ -65,6 +65,7 @@ const App = () => {
     e.preventDefault();
     try {
       const loginRes = await login({ username, password });
+      logger.info(loginRes);
       setUser(loginRes);
       blogService.setToken(loginRes.token);
       window.localStorage.setItem("currentUser", JSON.stringify(loginRes));
@@ -134,13 +135,16 @@ const App = () => {
 
   if (user === null) {
     return (
-      <LoginForm
-        username={username}
-        password={password}
-        submitHandler={submitHandler}
-        usernameInputHandler={usernameInputHandler}
-        passwordInputHandler={passwordInputHandler}
-      />
+      <>
+        <LoginForm
+          username={username}
+          password={password}
+          submitHandler={submitHandler}
+          usernameInputHandler={usernameInputHandler}
+          passwordInputHandler={passwordInputHandler}
+        />
+        {showAlert && <AlertBox message={alertMsg} type={alertType} />}
+      </>
     );
   }
   return (
