@@ -50,7 +50,7 @@ const Blog = ({ blog, updateBlog, currentUser, deleteBlog }) => {
           ) : null}
         </div>
       ) : (
-        <button onClick={blogToggle} style={btnStyle}>
+        <button className="viewBtn" onClick={blogToggle} style={btnStyle}>
           view
         </button>
       )}

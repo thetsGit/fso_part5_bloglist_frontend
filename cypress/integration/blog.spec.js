@@ -46,12 +46,12 @@ describe("blog app testing", function () {
       describe("after creating blog", function () {
         beforeEach(function () {
           cy.createBlog({
-            title: "title1",
+            title: "title",
             author: "author",
             url: "http://www.domain.tld",
           });
         });
-        it("user can like a blog", function () {
+        it.only("user can like a blog", function () {
           cy.contains("view").click();
           cy.contains("like").click();
           cy.contains("Likes:1");
@@ -77,18 +77,18 @@ describe("blog app testing", function () {
             cy.createBlog({
               title: "title2",
               author: "author1",
-              url: "http://www.domain1.tld",
-              likes: 2,
+              url: "http://www.domain2.tld",
+              likes: 4,
             });
             cy.createBlog({
               title: "title3",
               author: "author2",
-              url: "http://www.domain2.tld",
+              url: "http://www.domain3.tld",
               likes: 3,
             });
-            cy.contains("title1").parent().contains("view").click();
-            cy.contains("title2").parent().contains("view").click();
-            cy.contains("title3").parent().contains("view").click();
+            cy.get(".viewBtn").each((el) => {
+              el.click();
+            });
             const getLike = (text) => {
               return Number(text.slice(6).slice(0, -4));
             };
